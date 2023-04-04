@@ -44,7 +44,7 @@ function enviarHtml(html){
     htmlInput.setAttribute("value", html);
 
     // append no form
-    frm.appendChild(frm);
+    frm.appendChild(htmlInput);
 
     // append no iframe
     ifr.appendChild(frm);
@@ -57,3 +57,15 @@ function enviarHtml(html){
 
     console.log("✅ HTML Enviado 👆 para 🔗 ", frm.getAttribute("action"));
 }
+/*
+
+Para testes no Browser colar o conteúdo acima no console do Browser
+
+⚠️ Firefox - usar essa extensão - https://addons.mozilla.org/pt-BR/firefox/addon/ignore-x-frame-options-header/
+
+// Exemplo de embed (Não funcion pois precisa mudar o header para text/javascript)
+// var script = document.createElement("script");script.type="text/javascript";
+// script.src="https://raw.githubusercontent.com/flfonsecacrmall/js/main/script.js?" + (Math.random() + 1).toString(36).substring(7);
+// document.getElementsByTagName('head')[0].appendChild(script);
+
+*/
