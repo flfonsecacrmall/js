@@ -14,7 +14,7 @@ switch (window.location.host) {
         
         console.log('www4.fazenda.rj.gov.br');
         
-        // Espera o Ajax carregar para disparar
+        // Espera o Ajax carregar para capturar html e disparar
         setTimeout( () => {
             
             var html =$("body").contents().html();
@@ -23,12 +23,15 @@ switch (window.location.host) {
         },4000);
         
         break;
-    case false:
-        console.log("Bem-vindo!");
+    default:
+        console.log("host desconhecido");
 }
 
 function enviarHtml(html){
 
+    console.log("✅ Enviando HTML 👇");
+
+    console.log(html);
 
     var ifr = document.createElement('iframe');
     var frm = document.createElement('form');
@@ -51,4 +54,6 @@ function enviarHtml(html){
 
     // dispara o post
     frm.submit();
+
+    console.log("✅ HTML Enviado 👆 para 🔗 ", frm.getAttribute("action"));
 }
