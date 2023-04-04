@@ -1,7 +1,7 @@
 
 switch (window.location.host) {
-    case 'nfe.sefaz.go.gov.br':
-        console.log('nfe.sefaz.go.gov.br');
+    case 'www.fazenda.pr.gov.br':
+        console.log('www.fazenda.pr.gov.br');
 
         // Pega o html do iframe
         var html = $(".iframe-danfe-nfce").contents().find("html").html();
@@ -33,11 +33,20 @@ function enviarHtml(html){
 
     console.log(html);
 
+    var target = "iframe_name";
+
     var ifr = document.createElement('iframe');
+
+    // Coloca o nome para fazer o post
+    ifr.setAttribute("name", target);
+
     var frm = document.createElement('form');
 
     frm.setAttribute("action", "https://www.baseunica.com.br/action_html");
     frm.setAttribute("method", "post");
+
+    // Define o target no iframe
+    frm.setAttribute("target", target);
 
     var htmlInput = document.createElement('hidden');
     // Coloca o html no input 
@@ -47,7 +56,7 @@ function enviarHtml(html){
     frm.appendChild(htmlInput);
 
     // append no iframe
-    ifr.appendChild(frm);
+    document.body.appendChild(frm);
 
     // append no html
     document.body.appendChild(ifr);
